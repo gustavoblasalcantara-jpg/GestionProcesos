@@ -1,0 +1,22 @@
+digraph G { 
+  bgcolor="white"; nodesep=0.35; ranksep=0.32; splines=ortho;
+  node [fontname="Liberation Sans", fontsize=12, penwidth=1.3, color="#1F3A5F", style=filled, fillcolor="#DCEBFA", shape=box, margin="0.15,0.06"];
+  edge [fontname="Liberation Sans", fontsize=11, color="#1F3A5F", penwidth=1.2, arrowsize=0.7];
+
+  node [fillcolor="#E3F4E1", color="#1E6B3A"]; edge [color="#1E6B3A"];
+  ini [label="INICIO  Ejecutar siguiente", shape=box, style="rounded,filled", fillcolor="#1F3A5F", fontcolor="white", fillcolor="#1E6B3A"];
+  d1 [label="¿cola vacía?", shape=diamond, fillcolor="#FFF4CC", color="#B8860B", fontsize=11];
+  e1 [label="\"No hay procesos LISTOS\"", fillcolor="#FBE3E1", color="#C0392B"];
+  a1 [label="aux ← frente\nid ← aux→id\nfrente ← frente→siguiente"];
+  d2 [label="¿frente == NULL?", shape=diamond, fillcolor="#FFF4CC", color="#B8860B", fontsize=11];
+  a2 [label="final ← NULL"];
+  a3 [label="delete aux\np ← buscarProceso(cabeza, id)"];
+  a4 [label="p→estado ← EJECUCIÓN"];
+  a5 [label="Mostrar ráfaga\n(for i = 1 hasta p→rafaga)", shape=parallelogram, fillcolor="#FFFFFF"];
+  a6 [label="cambiarEstado(p, TERMINADO)\n→ libera su memoria"];
+  final [label="FIN", shape=box, style="rounded,filled", fillcolor="#1F3A5F", fontcolor="white", fillcolor="#1E6B3A"];
+  ini -> d1; d1 -> e1 [xlabel="Sí"]; d1 -> a1 [xlabel="No"];
+  a1 -> d2; d2 -> a2 [xlabel="Sí"]; d2 -> a3 [xlabel="No"]; a2 -> a3;
+  a3 -> a4 -> a5 -> a6 -> final; e1 -> final;
+  {rank=same; d1; e1;} {rank=same; d2; a2;}
+}

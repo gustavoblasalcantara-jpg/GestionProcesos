@@ -1,0 +1,15 @@
+digraph G {
+  rankdir=LR; bgcolor="white"; ranksep=0.5;
+  node [fontname="Liberation Sans", fontsize=12];
+  tope [shape=box, style="rounded,filled", fillcolor="#B5651D", fontcolor="white", label="tope"];
+  ops [shape=plaintext, fontsize=11, fontcolor="#444444", label="push → entra por el tope\npop  → sale por el tope\n(LIFO: último en entrar,\nprimero en salir)"];
+  p [shape=plaintext, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7" BGCOLOR="#FDEBD3" COLOR="#B5651D">
+   <TR><TD BGCOLOR="#B5651D"><FONT COLOR="white"><B>idProceso</B></FONT></TD><TD BGCOLOR="#B5651D"><FONT COLOR="white"><B>tamanio</B></FONT></TD><TD BGCOLOR="#B5651D"><FONT COLOR="white"><B>siguiente</B></FONT></TD></TR>
+   <TR><TD PORT="t">103</TD><TD>96 MB</TD><TD>↓</TD></TR>
+   <TR><TD>102</TD><TD>64 MB</TD><TD>↓</TD></TR>
+   <TR><TD>101</TD><TD>256 MB</TD><TD>↓</TD></TR>
+   <TR><TD>100</TD><TD>128 MB</TD><TD><FONT COLOR="#C0392B">NULL</FONT></TD></TR>
+   </TABLE>>];
+  tope -> p:t [color="#B5651D", penwidth=1.6];
+  p -> ops [style=invis];
+}

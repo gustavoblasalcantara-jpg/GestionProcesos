@@ -1,0 +1,23 @@
+digraph G {
+  rankdir=LR; bgcolor="white"; nodesep=0.3; ranksep=0.45;
+  node [fontname="Liberation Sans", fontsize=12, shape=plaintext];
+  edge [color="#1F3A5F", penwidth=1.4, arrowsize=0.8];
+  cab [shape=box, style="rounded,filled", fillcolor="#1F3A5F", fontcolor="white", label="cabeza"];
+  null [shape=plaintext, label="NULL", fontcolor="#C0392B", fontsize=13];
+  n1 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#DCEBFA" COLOR="#1F3A5F">
+   <TR><TD COLSPAN="2" BGCOLOR="#1F3A5F"><FONT COLOR="white"><B>Proceso</B></FONT></TD><TD ROWSPAN="6" PORT="s" BGCOLOR="#C5DCF3">sig<BR/>&#9679;</TD></TR>
+   <TR><TD ALIGN="LEFT">id</TD><TD>100</TD></TR><TR><TD ALIGN="LEFT">nombre</TD><TD>explorer.exe</TD></TR>
+   <TR><TD ALIGN="LEFT">prioridad</TD><TD>1</TD></TR><TR><TD ALIGN="LEFT">rafaga</TD><TD>4</TD></TR>
+   <TR><TD ALIGN="LEFT">estado</TD><TD>LISTO</TD></TR></TABLE>>];
+  n2 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#DCEBFA" COLOR="#1F3A5F">
+   <TR><TD COLSPAN="2" BGCOLOR="#1F3A5F"><FONT COLOR="white"><B>Proceso</B></FONT></TD><TD ROWSPAN="6" PORT="s" BGCOLOR="#C5DCF3">sig<BR/>&#9679;</TD></TR>
+   <TR><TD ALIGN="LEFT">id</TD><TD>101</TD></TR><TR><TD ALIGN="LEFT">nombre</TD><TD>chrome.exe</TD></TR>
+   <TR><TD ALIGN="LEFT">prioridad</TD><TD>3</TD></TR><TR><TD ALIGN="LEFT">rafaga</TD><TD>10</TD></TR>
+   <TR><TD ALIGN="LEFT">estado</TD><TD>LISTO</TD></TR></TABLE>>];
+  n3 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#DCEBFA" COLOR="#1F3A5F">
+   <TR><TD COLSPAN="2" BGCOLOR="#1F3A5F"><FONT COLOR="white"><B>Proceso</B></FONT></TD><TD ROWSPAN="6" PORT="s" BGCOLOR="#C5DCF3">sig<BR/>&#9679;</TD></TR>
+   <TR><TD ALIGN="LEFT">id</TD><TD>102</TD></TR><TR><TD ALIGN="LEFT">nombre</TD><TD>antivirus.exe</TD></TR>
+   <TR><TD ALIGN="LEFT">prioridad</TD><TD>2</TD></TR><TR><TD ALIGN="LEFT">rafaga</TD><TD>6</TD></TR>
+   <TR><TD ALIGN="LEFT">estado</TD><TD>NUEVO</TD></TR></TABLE>>];
+  cab -> n1; n1:s -> n2; n2:s -> n3; n3:s -> null;
+}

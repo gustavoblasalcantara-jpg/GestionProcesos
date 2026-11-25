@@ -1,0 +1,18 @@
+digraph G {
+  rankdir=TB; bgcolor="white"; nodesep=0.4; ranksep=0.55; compound=true;
+  node [fontname="Liberation Sans", fontsize=12, shape=box, style="rounded,filled", penwidth=1.3];
+  edge [color="#555555", penwidth=1.2, fontname="Liberation Sans", fontsize=10];
+  usr [label="Usuario", shape=ellipse, fillcolor="#FFFFFF", color="#1F3A5F"];
+  menu [label="Menú principal  (consola)\nleerNumero() valida entradas", fillcolor="#1F3A5F", fontcolor="white", color="#1F3A5F"];
+  subgraph cluster_s { label="main(): punteros cabeza, frente/finalal y tope"; labelloc="b"; fontname="Liberation Sans Bold"; fontsize=12; style="rounded,dashed"; color="#888888";
+    gp [label="Gestor de Procesos\nLISTA ENLAZADA\n(Proceso *cabeza)", fillcolor="#DCEBFA", color="#1F3A5F"];
+    pc [label="Planificador de CPU\nCOLA DE PRIORIDAD\n(NodoCola *frente, *finalal)", fillcolor="#E3F4E1", color="#1E6B3A"];
+    gm [label="Gestor de Memoria\nPILA LIFO\n(BloqueMemoria *tope)", fillcolor="#FDEBD3", color="#B5651D"];
+  }
+  est [label="Control de estados\ncambiarEstado()", fillcolor="#FFF4CC", color="#B8860B"];
+  per [label="Persistencia\nprocesos.txt · memoria.txt", fillcolor="#EEEEEE", color="#666666", shape=folder];
+  usr -> menu; menu -> gp; menu -> pc; menu -> gm;
+  pc -> gp [label=" usa el id\n del proceso", style=dashed, constraint=false];
+  gp -> est [dir=both]; pc -> est [dir=both]; gm -> est [dir=both];
+  est -> per [label=" guardar / cargar", dir=both];
+}

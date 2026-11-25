@@ -1,0 +1,28 @@
+digraph G { 
+  bgcolor="white"; nodesep=0.35; ranksep=0.32; splines=ortho;
+  node [fontname="Liberation Sans", fontsize=12, penwidth=1.3, color="#1F3A5F", style=filled, fillcolor="#DCEBFA", shape=box, margin="0.15,0.06"];
+  edge [fontname="Liberation Sans", fontsize=11, color="#1F3A5F", penwidth=1.2, arrowsize=0.7];
+
+  node [fillcolor="#E3F4E1", color="#1E6B3A"]; edge [color="#1E6B3A"];
+  ini [label="INICIO  encolar(frente, final, id, nombre, prioridad)", shape=box, style="rounded,filled", fillcolor="#1F3A5F", fontcolor="white", fillcolor="#1E6B3A"];
+  a1 [label="nuevo ← new NodoCola\nnuevo→id, nombre, prioridad\nnuevo→siguiente ← NULL"];
+  d1 [label="¿frente == NULL?\n(cola vacía)", shape=diamond, fillcolor="#FFF4CC", color="#B8860B", fontsize=11];
+  a2 [label="frente ← nuevo\nfin ← nuevo"];
+  d2 [label="¿prioridad <\nfrente→prioridad?", shape=diamond, fillcolor="#FFF4CC", color="#B8860B", fontsize=11];
+  a3 [label="nuevo→siguiente ← frente\nfrente ← nuevo"];
+  a4 [label="aux ← frente"];
+  d3 [label="¿aux→siguiente ≠ NULL y\naux→siguiente→prioridad\n≤ prioridad?", shape=diamond, fillcolor="#FFF4CC", color="#B8860B", fontsize=11];
+  a5 [label="aux ← aux→siguiente"];
+  a6 [label="nuevo→siguiente ← aux→siguiente\naux→siguiente ← nuevo"];
+  d4 [label="¿nuevo→siguiente\n== NULL?", shape=diamond, fillcolor="#FFF4CC", color="#B8860B", fontsize=11];
+  a7 [label="final ← nuevo"];
+  a8 [label="(fin de la inserción)", shape=plaintext, style=""];
+  final [label="FIN", shape=box, style="rounded,filled", fillcolor="#1F3A5F", fontcolor="white", fillcolor="#1E6B3A"];
+  ini -> a1 -> d1;
+  d1 -> a2 [xlabel="Sí"]; d1 -> d2 [xlabel="No"];
+  d2 -> a3 [xlabel="Sí"]; d2 -> a4 [xlabel="No"];
+  a4 -> d3; d3 -> a5 [xlabel="Sí"]; a5 -> d3; d3 -> a6 [xlabel="No"];
+  a6 -> d4; d4 -> a7 [xlabel="Sí"]; d4 -> a8 [xlabel="No"]; a7 -> a8;
+  a2 -> a8; a3 -> a8; a8 -> final;
+  {rank=same; d1; a2;} {rank=same; d2; a3;} {rank=same; d3; a5;} {rank=same; d4; a7;}
+}
