@@ -35,6 +35,6 @@ presentacion/  Diapositivas de la exposición
 | Integrante | Rol | Rama |
 |---|---|---|
 | Gustavo Blas Alcántara | Coordinador · Lista enlazada | `feature/gestor-procesos` |
-| Jhanpool Bueno Yancce Taype | Planificador de CPU | `feature/planificador-cpu` |
+| Jhanpool Bueno Yancce Taype | Planificador de CPU | `revisión de la cola de prioridad y del planificador` |
 | Manuel Jeanpier Lule Luna | Gestor de memoria | `feature/gestor-memoria` |
 | Gustavo Brayan Mallasca Huamani | Integración, pruebas y documentación | `feature/persistencia-docs` |
